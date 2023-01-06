@@ -110,7 +110,7 @@ class LogMaintenance extends WireData implements Module, ConfigurableModule {
                 $log = $this->wire("log")->getFileLog($name);
                 $size = $log->size();
 
-                if($archive) {
+                if($archive == '1') {
                     $this->archiveLog($name, $log->pathName());
                     $log->delete();
                     $this->wire("session")->message("Log '$name' archived");
@@ -156,7 +156,7 @@ class LogMaintenance extends WireData implements Module, ConfigurableModule {
             $totalEntries = $this->wire("log")->getTotalEntries($name);
             $log = $this->wire("log")->getFileLog($name);
 
-            if($this->archive != "") {
+            if($this->archive == '1') {
                 $this->archiveLog($name, $log->pathName());
                 $log->delete();
                 $this->wire("session")->message("Log '$name' archived");
@@ -292,7 +292,7 @@ class LogMaintenance extends WireData implements Module, ConfigurableModule {
         $fs->append($field);
 
         $field = wire('modules')->get("InputfieldInteger");
-        $field->attr('name', 'Bytes');
+        $field->attr('name', 'bytes');
         $field->attr('value', $data['bytes']);
         $field->Label = "Bytes";
         $field->description = "Prune logs to number of bytes";
