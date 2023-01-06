@@ -2,7 +2,7 @@
 
 /**
  *  Module to help maintain log files
- *
+ *  Forked from: https://github.com/somatonic/LogMaintenance
  */
 
 
