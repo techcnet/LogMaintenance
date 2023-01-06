@@ -1,5 +1,7 @@
 # LogMaintenance
 
+Forked from: https://github.com/somatonic/LogMaintenance
+
 Make sure you don't have any exceptional large log files, as it could possibly fail to prune those via PHP. So prune, delete or back them up first.
 
 **Global Settings**
